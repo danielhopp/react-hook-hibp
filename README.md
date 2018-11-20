@@ -2,9 +2,12 @@
 
 [![npm](https://img.shields.io/npm/v/react-hook-hibp.svg)](https://www.npmjs.com/package/react-hook-hibp)
 
-_[React Hook](https://reactjs.org/hooks) for password input validation based on [Justin Hall](https://github.com/wKovacs64)'s [hibp](https://github.com/wkovacs64/hibp) based on [Troy Hunt](https://www.troyhunt.com/)'s [Have I been pwned?](https://haveibeenpwned.com/)._
+_[React Hook](https://reactjs.org/hooks) for password input validation based on [Justin Hall](https://github.com/wKovacs64)'s [hibp](https://github.com/wkovacs64/hibp) based on [Troy Hunt](https://www.troyhunt.com/)'s [Have I been pwned?](https://haveibeenpwned.com/)_
 
 **Warning: React Hooks are currently a RFC proposal and may be subject to change.**
+
+
+## [Demo](https://danielhopp.github.io/react-hook-hibp/)
 
 ## Description
 
