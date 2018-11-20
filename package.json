@@ -1,0 +1,45 @@
+{
+  "name": "react-hook-hibp",
+  "version": "1.0.4",
+  "keywords": [
+    "password",
+    "input",
+    "validation",
+    "hibp",
+    "pwned",
+    "react",
+    "hook"
+  ],
+  "description":
+    "React Hook for password input validation based on \"Have I Been Pwned?\"",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "scripts": {
+    "build": "rimraf lib && prepublish"
+  },
+  "author": {
+    "name": "Daniel Hopp",
+    "email": "mail@danielhopp.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielhopp/react-hook-hibp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danielhopp/react-hook-hibp/issues"
+  },
+  "homepage": "https://github.com/danielhopp/react-hook-hibp",
+  "license": "MIT",
+  "dependencies": {
+    "hibp": "^7.2.1",
+    "react": "^16.7.0-alpha.0",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "prepublish": "^2.2.0",
+    "rimraf": "^2.6.2"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.0"
+  }
+}
