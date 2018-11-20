@@ -11,7 +11,7 @@ _[React Hook](https://reactjs.org/hooks) for password input validation based on 
 
 ## Description
 
-This module implements [NIST](https://www.nist.gov/) password guidelines applied to to input elements within the body of a [functional React Component](https://reactjs.org/docs/components-and-props.html#function-and-class-components).
+This module implements [NIST](https://www.nist.gov/) password guidelines applied to be applied to input elements within the body of a [functional React Component](https://reactjs.org/docs/components-and-props.html#function-and-class-components).
 
 > Memorized secrets SHALL be at least 8 characters in length […]
 >
