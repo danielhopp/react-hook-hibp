@@ -3,7 +3,7 @@
   "dependencies": {
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
-    "react-hook-hibp": "*",
+    "react-hook-hibp": "^1.0.3",
     "react-scripts": "2.1.1"
   },
   "homepage": "https://danielhopp.github.io/react-hook-hibp/",

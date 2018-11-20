@@ -7876,10 +7876,10 @@ react-error-overlay@^5.1.0:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
   integrity sha512-akMy/BQT5m1J3iJIHkSb4qycq2wzllWsmmolaaFVnb+LPV9cIJ/nTud40ZsiiT0H3P+/wXIdbjx2fzF61OaeOQ==
 
-react-hook-hibp@*:
-  version "1.0.3-alpha.0"
-  resolved "https://registry.yarnpkg.com/react-hook-hibp/-/react-hook-hibp-1.0.3-alpha.0.tgz#01395a35515ffe6fd67c0ae911e39b3d7584416a"
-  integrity sha512-CrDrSHAch+J4OU91omTHmReHahGarr3LTC0OOAA1uMKm91uvUNRoiIRkMbdfVxAUDglQlmNbd335J09sdOynJw==
+react-hook-hibp@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-hook-hibp/-/react-hook-hibp-1.0.3.tgz#fcb088381e0519cf34225ce20a57da991b7e320f"
+  integrity sha512-3kfldvRheF054iMvc8DeVlbsjmYsz+8Swc/cZTk8BUYAdWuLwi//rVWtR0UJQKk+L157q2quEjbPw3zOLswp/A==
   dependencies:
     hibp "^7.2.1"
     react "^16.7.0-alpha.0"
