@@ -11,7 +11,7 @@ _[React Hook](https://reactjs.org/hooks) for password input validation based on 
 
 ## Description
 
-This implements [NIST](https://www.nist.gov/) password guidelines by providing a function `usePasswordCheck()` as an enhancer for input elements within the body of a [functional React Component](https://reactjs.org/docs/components-and-props.html#function-and-class-components).
+This module implements [NIST](https://www.nist.gov/) password guidelines applied to to input elements within the body of a [functional React Component](https://reactjs.org/docs/components-and-props.html#function-and-class-components).
 
 > Memorized secrets SHALL be at least 8 characters in length […]
 >
@@ -29,6 +29,30 @@ yarn add react-hook-hibp
 ```
 
 ## Usage
+
+### Example
+
+```javascript
+import React, { useState, useEffect } from 'react'
+import usePasswordCheck from 'react-hook-hibp'
+
+export default () => {
+  const [value, setValue] = useState('')
+  const [statusCode, checkPassword] = usePasswordCheck()
+  useEffect(() => checkPassword(value), [value])
+
+  return (
+    <>
+      <input
+        type="password"
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+      <p>{value !== '' && statusCode}</p>
+    </>
+  )
+}
+```
 
 ### usePasswordCheck()
 
@@ -61,40 +85,17 @@ export const defaultOptions = {
 
 ## setRateLimit()
 
-[Rate limiting](https://haveibeenpwned.com/API/v2#RateLimiting) is being respected (`statusCodes.WAITING`). Increase rate limit if you expect concurrent usage by different apps/devices using the same IP:
+[API Rate limiting](https://haveibeenpwned.com/API/v2#RateLimiting) is being respected and reflected in `statusCodes.WAITING`. Increase rate limit if you expect concurrent usage by different processes/apps/devices using the same IP.
+Example:
 ```javascript
 import usePasswordCheck, { setRateLimit } from 'react-hook-hibp'
 
 setRateLimit(3000)
 ```
 
-## Example
-
-```javascript
-import React, { useState, useEffect } from 'react'
-import usePasswordCheck from 'react-hook-hibp'
-
-export default () => {
-  const [value, setValue] = useState('')
-  const [statusCode, checkPassword] = usePasswordCheck()
-  useEffect(() => checkPassword(value), [value])
-
-  return (
-    <>
-      <input
-        type="password"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-      <p>{value !== '' && status}</p>
-    </>
-  )
-}
-```
-
 ## Notes
 
-* [k-anonymity](https://en.wikipedia.org/wiki/K-anonymity): Only the first five characters of the **hashed password** are submitted to the [haveibeenpwned.com range API](https://haveibeenpwned.com/API/v2#SearchingPwnedPasswordsByRange) service.
+* [k-anonymity](https://en.wikipedia.org/wiki/K-anonymity): Only the first five characters of the *hashed* password are submitted to the [haveibeenpwned.com range API](https://haveibeenpwned.com/API/v2#SearchingPwnedPasswordsByRange) service.
 
 * API results are being cached non-persistently
 
