@@ -4,9 +4,6 @@
 
 _[React Hook](https://reactjs.org/hooks) for password input validation based on [Justin Hall](https://github.com/wKovacs64)'s [hibp](https://github.com/wkovacs64/hibp) based on [Troy Hunt](https://www.troyhunt.com/)'s [Have I been pwned?](https://haveibeenpwned.com/)_
 
-**Warning: React Hooks are currently a RFC proposal and may be subject to change.**
-
-
 ## [Demo](https://danielhopp.github.io/react-hook-hibp/)
 
 ## Description
@@ -34,20 +31,18 @@ yarn add react-hook-hibp
 
 ```javascript
 import React, { useState, useEffect } from 'react'
-import usePasswordCheck from 'react-hook-hibp'
+import { usePasswordCheck } from 'react-hook-hibp'
 
 export default () => {
   const [value, setValue] = useState('')
+  const onChange = e => setValue(e.target.value)
+
   const [statusCode, checkPassword] = usePasswordCheck()
   useEffect(() => checkPassword(value), [value])
 
   return (
     <>
-      <input
-        type="password"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
+      <input type="password" value={value} onChange={onChange} />
       <p>{value !== '' && statusCode}</p>
     </>
   )
@@ -62,15 +57,6 @@ const [statusCode, checkPassword] = usePasswordCheck(options)
 
 Call `checkPassword()` on input change, handle form validation according to `statusCode`.
 
-### options
-
-```javascript
-export const defaultOptions = {
-  minLength: 8,
-  maxLength: 128
-}
-```
-
 ### statusCodes
 
 | Key        | Description |
@@ -83,22 +69,31 @@ export const defaultOptions = {
 | PWNED | Password insecure |
 | NOT_PWNED | Password (probably) secure |
 
+### options
+
+```javascript
+export const defaultOptions = {
+  minLength: 8,
+  maxLength: 128
+}
+```
+
 ## setRateLimit()
 
-[API Rate limiting](https://haveibeenpwned.com/API/v2#RateLimiting) is being respected and reflected in `statusCodes.WAITING`. Increase rate limit if you expect concurrent usage by different processes/apps/devices using the same IP.
+[API Rate limiting](https://haveibeenpwned.com/API/v2#RateLimiting) is being respected and reflected in `statusCodes.WAITING`. Increase rate limit if you expect concurrent usage by different processes sharing the same IP.
 Example:
 ```javascript
-import usePasswordCheck, { setRateLimit } from 'react-hook-hibp'
+import { setRateLimit } from 'react-hook-hibp'
 
 setRateLimit(3000)
 ```
 
 ## Notes
 
-* [k-anonymity](https://en.wikipedia.org/wiki/K-anonymity): Only the first five characters of the *hashed* password are submitted to the [haveibeenpwned.com range API](https://haveibeenpwned.com/API/v2#SearchingPwnedPasswordsByRange) service.
+* [k-anonymity](https://en.wikipedia.org/wiki/K-anonymity): Only the first five characters of the *hashed* input are submitted to the [haveibeenpwned.com range API](https://haveibeenpwned.com/API/v2#SearchingPwnedPasswordsByRange).
 
 * API results are being cached non-persistently
 
 ## License
 
-This module is distributed under the [MIT License][license].
+This module is distributed under the [MIT License](LICENSE).

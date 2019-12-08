@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-import usePasswordCheck, { defaultOptions, statusCodes } from 'react-hook-hibp'
+import { usePasswordCheck, defaultOptions, statusCodes } from 'react-hook-hibp'
 import htmlFor from './htmlFor'
 
 import './App.css'
@@ -21,7 +21,7 @@ export default () => {
   const [value, setValue] = useState('')
   const inputElement = useRef(null)
   const [passwordCheckStatus, checkPassword] = usePasswordCheck()
-  useEffect(() => checkPassword(value), [value])
+  useEffect(() => checkPassword(value), [value, checkPassword])
   const isValid = passwordCheckStatus === statusCodes.NOT_PWNED
   useEffect(
     () => {

@@ -29,7 +29,7 @@ let previousCheckTimestamp = null
 let isChecking = false
 let checkTimer = null
 
-export default (options = {}) => {
+export const usePasswordCheck = (options = {}) => {
   const [status, setStatus] = useState(null)
 
   const opts = {
